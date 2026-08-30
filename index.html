@@ -5,11 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dar Zina - Cuisine Marocaine Traditionnelle</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Arial, sans-serif;
       margin: 0;
       padding: 0;
       color: #333;
+      scroll-behavior: smooth;
     }
     header {
       display: flex;
@@ -17,46 +21,156 @@
       align-items: center;
       padding: 20px 40px;
       border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      background: white;
+      z-index: 100;
     }
     header h1 {
       color: #c0603a;
+      margin: 0;
+      font-size: 26px;
     }
     nav a {
-      margin-left: 20px;
+      margin-left: 25px;
       text-decoration: none;
       color: #333;
+      font-weight: 500;
     }
+    nav a:hover {
+      color: #c0603a;
+    }
+    section {
+      padding: 60px 40px;
+    }
+    /* HERO */
     .hero {
       display: flex;
       align-items: center;
-      padding: 60px 40px;
       gap: 40px;
     }
     .hero-text {
       flex: 1;
     }
     .hero-text h2 {
-      font-size: 48px;
+      font-size: 46px;
+      margin: 10px 0;
     }
     .tag {
       display: inline-block;
       background: #f5e9dd;
       padding: 8px 16px;
       border-radius: 20px;
-      margin-bottom: 20px;
     }
     .btn {
       background: #c0603a;
       color: white;
-      padding: 12px 24px;
+      padding: 12px 26px;
       border-radius: 30px;
       text-decoration: none;
       display: inline-block;
       margin-top: 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .btn:hover {
+      background: #a34e2e;
     }
     .hero-img img {
       width: 100%;
       border-radius: 20px;
+    }
+    /* MENU */
+    #menu {
+      background: #fbf7f2;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .section-title span {
+      background: #f5e9dd;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+    .section-title h2 {
+      font-size: 36px;
+      margin: 15px 0 0;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .menu-item {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .menu-item .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .menu-item h3 {
+      margin: 0 0 8px;
+      color: #c0603a;
+    }
+    .menu-item .price {
+      font-weight: bold;
+      color: #c0603a;
+    }
+    .menu-item p {
+      color: #666;
+      font-size: 14px;
+      margin: 0;
+    }
+    /* CONTACT */
+    #contact {
+      background: white;
+    }
+    .contact-wrap {
+      display: flex;
+      gap: 50px;
+      max-width: 1000px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+    .contact-info, .contact-form {
+      flex: 1;
+      min-width: 280px;
+    }
+    .contact-info p {
+      margin: 15px 0;
+      font-size: 16px;
+    }
+    .contact-info strong {
+      color: #c0603a;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 15px;
+    }
+    .contact-form textarea {
+      height: 120px;
+      resize: vertical;
+    }
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #2b2320;
+      color: #ccc;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -65,24 +179,101 @@
   <header>
     <h1>Dar Zina دار زينة</h1>
     <nav>
-      <a href="#">Accueil</a>
-      <a href="#">Notre menu</a>
-      <a href="#">À propos</a>
-      <a href="#">Contact</a>
+      <a href="#accueil">Accueil</a>
+      <a href="#menu">Notre menu</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <section class="hero">
+  <section class="hero" id="accueil">
     <div class="hero-text">
       <span class="tag">Cuisine marocaine traditionnelle</span>
       <h2>Bienvenue chez Dar Zina</h2>
       <p>Savourez une cuisine marocaine traditionnelle dans une ambiance chaleureuse et conviviale. Des plats maison, préparés avec amour, comme à la maison.</p>
-      <a href="#" class="btn">Voir le menu</a>
+      <a href="#menu" class="btn">Voir le menu</a>
     </div>
     <div class="hero-img">
-      <img src="https://via.placeholder.com/500x400" alt="Tajine Dar Zina">
+      <img src="https://images.unsplash.com/photo-1548943487-a2e4e43b4853?w=600" alt="Tajine Dar Zina">
     </div>
   </section>
+
+  <section id="menu">
+    <div class="section-title">
+      <span>Notre Menu</span>
+      <h2>Nos plats faits maison</h2>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <div class="row">
+          <h3>Tajine Poulet Citron</h3>
+          <span class="price">75 DH</span>
+        </div>
+        <p>Poulet mijoté aux olives, citron confit et épices marocaines.</p>
+      </div>
+      <div class="menu-item">
+        <div class="row">
+          <h3>Couscous Royal</h3>
+          <span class="price">85 DH</span>
+        </div>
+        <p>Semoule fine, légumes de saison et viande tendre.</p>
+      </div>
+      <div class="menu-item">
+        <div class="row">
+          <h3>Pastilla au Poulet</h3>
+          <span class="price">60 DH</span>
+        </div>
+        <p>Feuilleté croustillant, amandes et sucre glace.</p>
+      </div>
+      <div class="menu-item">
+        <div class="row">
+          <h3>Harira Traditionnelle</h3>
+          <span class="price">25 DH</span>
+        </div>
+        <p>Soupe marocaine riche en légumineuses et épices.</p>
+      </div>
+      <div class="menu-item">
+        <div class="row">
+          <h3>Thé à la Menthe</h3>
+          <span class="price">15 DH</span>
+        </div>
+        <p>Thé vert traditionnel à la menthe fraîche.</p>
+      </div>
+      <div class="menu-item">
+        <div class="row">
+          <h3>Pâtisseries Marocaines</h3>
+          <span class="price">30 DH</span>
+        </div>
+        <p>Assortiment de gâteaux traditionnels au miel et amandes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-title">
+      <span>Contact</span>
+      <h2>Venez nous rendre visite</h2>
+    </div>
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <p><strong>📍 Adresse:</strong><br>Quartier Habous, Casablanca, Maroc</p>
+        <p><strong>📞 Téléphone:</strong><br>+212 6XX XXX XXX</p>
+        <p><strong>🕐 Horaires:</strong><br>Tous les jours, 11h - 23h</p>
+        <p><strong>✉️ Email:</strong><br>contact@darzina.ma</p>
+      </div>
+      <div class="contact-form">
+        <form onsubmit="alert('Merci ! Votre message a bien été envoyé.'); return false;">
+          <input type="text" placeholder="Votre nom" required>
+          <input type="email" placeholder="Votre email" required>
+          <textarea placeholder="Votre message" required></textarea>
+          <button type="submit" class="btn">Envoyer</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Dar Zina - دار زينة. Tous droits réservés.
+  </footer>
 
 </body>
 </html>
